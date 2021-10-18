@@ -1,12 +1,13 @@
-@extends('layouts.admin', ['title' => 'Create'])
+@extends('layouts.admin')
 
 @section('contents')
 <div class="col-md-12">
     <div class="card">
-        <div class="card-header">Tambah Pengarang Buku</div>
+        <div class="card-header">Edit Pengarang Buku</div>
                 <div class="card-body">
-                    <form action="{{ route('pengarang.store') }}" method="POST" accept="">
+                    <form action="{{ route('pengarang.update', $pengarang->id) }}" method="POST" accept="">
                         @csrf
+                        @method('PUT')
                         @if ($errors->any())
                         <div class="alert alert-danger">
                         <ul>
@@ -16,15 +17,14 @@
                         </ul>
                         </div>
                         @endif
-
                         <div class="form-group">
                         <div class="col-lg-12">
                             Masukan Nama Pengarang
                         </div>
 
                         <div class="col-lg-12">
-                            <input type="text" value="{{old('nama_pengarang')}}" class="form-control" name="nama_pengarang"
-                            placeholder="Masukan Nama Pengarang">
+                            <input type="text" value="{{$pengarang->nama_pengarang}}" class="form-control" name="nama_pengarang"
+                            placeholder="Masukan Nama Pengarang" required>
                         </div>
                         </div>
 
@@ -34,8 +34,8 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <input type="email" value="{{old('email')}}" class="form-control" name="email"
-                                placeholder="Masukan Email Pengarang">
+                                <input type="email" value="{{$pengarang->email}}" class="form-control" name="email"
+                                placeholder="Masukan Email Pengarang" required>
                             </div>
                             </div>
 
@@ -45,15 +45,15 @@
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <input type="text" class="form-control" name="tlp"
-                                    placeholder="Masukan Nomor Telepon Pengarang">
+                                    <input type="text" value="{{$pengarang->tlp}}" class="form-control" name="tlp"
+                                    placeholder="Masukan Nomor Telepon Pengarang" required>
                                 </div>
                                 </div>
 
 
                                 <div class="form-group">
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-danger">Simpan Data</button>
+                                        <button type="submit" class="btn btn-danger">Ubah Data</button>
                                     </div>
                                     </div>
                     </form>

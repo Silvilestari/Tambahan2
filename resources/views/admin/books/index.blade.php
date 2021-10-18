@@ -23,9 +23,6 @@
                     @endforeach
 
                 </div>
-                <div class="card-footer">
-                  Footer
-                </div>
             </div>
 
             <div class="card">
@@ -34,10 +31,10 @@
                     @foreach ($pengarangs as $pengarang )
                     Nama Pengarang Buku : {{ $pengarang->nama_pengarang }} <br>
                     Email Pengarang Buku : {{ $pengarang->email }} <br>
-                    Telepon Pengarang : {{ $pengarang->telp }} <br>
+                    Telepon Pengarang : {{ $pengarang->tlp }} <br>
                     Daftar Buku : <br>
                     @foreach ($pengarang->book as $item)
-                    Nama BUku : {{ $item->nama_buku }} <br>
+                    Nama Buku : {{ $item->nama_buku }} <br>
                     @endforeach
                     <hr>
                     @endforeach
